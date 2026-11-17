@@ -337,25 +337,22 @@
       }
     };
 
-    function loadData() {
-      fetch(API_URL + "?action=getTaldeak", {
-        method: "GET",
-        redirect: "follow"
-      })
-        .then(function(r) { return r.json(); })
-        .then(function(response) {
-          if (response && response.success) {
-            taldeakData = response.taldeak || {};
-            dataLoaded = true;
-            populateTaldeakSelect();
-          } else {
-            showError("Errorea datuak kargatzean: " + (response ? response.error : ""));
-          }
-        })
-        .catch(function(err) {
-          showError("Errorea zerbitzariarekin konektatzean: " + err.message);
-        });
-    }
+   function loadData() {
+  fetch(API_URL)
+    .then(function(r) { return r.json(); })
+    .then(function(response) {
+      if (response && response.success) {
+        taldeakData = response.taldeak || {};
+        dataLoaded = true;
+        populateTaldeakSelect();
+      } else {
+        showError("Errorea datuak kargatzean: " + (response ? response.error : ""));
+      }
+    })
+    .catch(function(err) {
+      showError("Errorea zerbitzariarekin konektatzean: " + err.message);
+    });
+}
 
     window.addEventListener("DOMContentLoaded", loadData);
 
