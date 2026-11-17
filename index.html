@@ -56,6 +56,11 @@
     #langSelector::before { left: -18px; transform: rotate(-16deg); }
     #langSelector::after { right: -18px; transform: rotate(16deg); }
     
+    .lang-logo {
+      position: relative; z-index: 1; display: block; margin: 0 auto 18px;
+      width: 190px; max-width: 60%; height: auto;
+      border-radius: 12px; background: #fff;
+    }
     .lang-title {
       position: relative; z-index: 1; margin: 0 0 10px;
       color: var(--club-blue); font-size: clamp(22px, 3vw, 30px); line-height: 1.22; font-weight: 850;
@@ -169,8 +174,8 @@
 
     <!-- Hizkuntza hautatzea -->
     <div id="langSelector" class="panel">
-      <h1 class="lang-title">Loteriaren Ordainketa<br><span style="font-size:0.75em; font-weight:600; color:var(--club-muted);">Pago de Lotería del Club</span></h1>
-      <p style="color:var(--club-muted); margin-bottom:18px; position:relative; z-index:1;">Aukeratu hizkuntza / Selecciona el idioma</p>
+      <img src="logo.png" alt="SBT Unkina" class="lang-logo" onerror="this.style.display='none'">
+      <h1 class="lang-title">Aukeratu hizkuntza / Selecciona el idioma</h1>
       <button type="button" class="btn-lang" onclick="selectLanguage('eu')">EUSKARA</button>
       <button type="button" class="btn-lang" onclick="selectLanguage('es')">CASTELLANO</button>
     </div>
@@ -178,7 +183,9 @@
     <!-- Formulario Nagusia -->
     <div id="mainForm">
       <div class="panel brand-header">
-        <div style="font-size: 54px; text-align: center;">🍀</div>
+        <div style="text-align: center;">
+          <img src="logo.png" alt="SBT Unkina" style="width: 100px; max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 10px;" onerror="this.style.display='none'">
+        </div>
         <div>
           <h2 id="formMainTitle">Loteriaren Ordainketa</h2>
           <small id="formSubTitle" style="font-size: 14px; color: var(--club-muted); font-weight: 600;">Ordainagiria igotzeko formularioa</small>
@@ -265,7 +272,7 @@
 
   <script>
     // ⚠️ Ordezkatu zure Apps Script Web App-aren URLarekin (Deploy > Manage deployments)
-    const API_URL = "https://script.google.com/macros/s/AKfycbxZy6lshoFKe1LGq4aYtAeQ44n_1okSaniwKokJsx7wBx2HC4h1636VrPEgbixcIynJ/exec";
+    const API_URL = "https://script.google.com/macros/s/ZURE_DEPLOYMENT_ID/exec";
 
     let currentLang = 'eu';
     let taldeakData = {};
