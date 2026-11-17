@@ -4,6 +4,7 @@
   <base target="_top">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loteriaren Ordainketa / Pago de Lotería - SBT Unkina</title>
 
   <style>
     :root {
@@ -271,7 +272,6 @@
   </div>
 
   <script>
-    // ⚠️ Ordezkatu zure Apps Script Web App-aren URLarekin (Deploy > Manage deployments)
     const API_URL = "https://script.google.com/macros/s/AKfycbxfvTWJe-Nd-US1Spst1MELt2q8Us7qg8bhnYMEWj0AT5CWbeVS82gYmy5xid7AWGGR/exec";
 
     let currentLang = 'eu';
@@ -338,7 +338,10 @@
     };
 
     function loadData() {
-      fetch(API_URL + "?action=getTaldeak")
+      fetch(API_URL + "?action=getTaldeak", {
+        method: "GET",
+        redirect: "follow"
+      })
         .then(function(r) { return r.json(); })
         .then(function(response) {
           if (response && response.success) {
@@ -497,9 +500,9 @@
           }
         };
 
-        // text/plain erabiltzen da CORS "preflight" saihesteko (Apps Script-ek ez du OPTIONS onartzen)
         fetch(API_URL, {
           method: "POST",
+          redirect: "follow",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(formObj)
         })
