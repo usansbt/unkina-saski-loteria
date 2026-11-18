@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="eu">
 <head>
-  <base target="_top">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Loteriaren Ordainketa / Pago de Lotería - SBT Unkina</title>
@@ -14,36 +13,28 @@
       --club-line: #c7ddff;
       --club-text: #243854;
       --club-muted: #60799e;
-      --club-white: #fff;
     }
     * { box-sizing: border-box; }
     body {
-      margin: 0; 
+      margin: 0;
       padding: 20px 0;
       font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--club-text);
       background: #ffffff;
       overflow-x: hidden;
     }
-    .container { 
-      width: 100%; 
-      max-width: 900px; 
-      margin: 0 auto; 
-      padding: 0 15px;
-      position: relative; 
-      z-index: 1; 
-    }
+    .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 15px; position: relative; z-index: 1; }
     .panel {
-      background: #ffffff; 
+      background: #ffffff;
       border: 1px solid #dce9ff;
-      border-radius: 19px; 
-      margin-bottom: 18px; 
+      border-radius: 19px;
+      margin-bottom: 18px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(21, 76, 163, .07);
     }
     .panel-content { padding: 25px; }
-    
-    /* Hizkuntza hautatzailea */
+
+    /* Selector de idioma */
     #langSelector {
       position: relative; padding: 35px 20px; text-align: center;
       background: linear-gradient(110deg, #fafdff, #edf5ff 48%, #fafdff);
@@ -56,7 +47,7 @@
     }
     #langSelector::before { left: -18px; transform: rotate(-16deg); }
     #langSelector::after { right: -18px; transform: rotate(16deg); }
-    
+
     .lang-logo {
       position: relative; z-index: 1; display: block; margin: 0 auto 18px;
       width: 190px; max-width: 60%; height: auto;
@@ -74,9 +65,9 @@
     }
     .btn-lang + .btn-lang { background: #fff; color: var(--club-blue); }
     .btn-lang:hover, .btn-submit:hover:not(:disabled) { background: var(--club-blue-dark); color: #fff; transform: translateY(-1px); }
-    
+
     #mainForm { display: none; }
-    
+
     .brand-header {
       display: grid; grid-template-columns: 110px 1fr; align-items: center;
       gap: 15px; padding: 22px 24px 18px; text-align: left;
@@ -84,7 +75,7 @@
     }
     .brand-header h2 { text-align: left; margin-bottom: 5px; }
     h2 { color: var(--club-blue); font-size: clamp(23px, 3vw, 29px); line-height: 1.2; font-weight: 850; letter-spacing: -.025em; margin: 0 0 9px; }
-    
+
     .bank-info {
       display: flex; align-items: center; gap: 20px;
       background: linear-gradient(100deg, #edf5ff, #f5f9ff);
@@ -99,52 +90,37 @@
     .bank-info code { display: inline-block; margin: 3px 0; color: #233a5d; font-family: inherit; font-size: 17px; font-weight: 850; letter-spacing: .025em; }
 
     .family-note {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-left: 4px solid #f59e0b;
-      color: #78350f;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 13.5px;
-      line-height: 1.45;
-      margin-bottom: 16px;
-      font-weight: 500;
+      background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+      color: #78350f; padding: 10px 14px; border-radius: 8px;
+      font-size: 13.5px; line-height: 1.45; margin-bottom: 16px; font-weight: 500;
     }
-    
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .form-group { margin-bottom: 18px; }
     .form-grid .form-group { margin-bottom: 0; }
-    
+
     label { display: block; margin-bottom: 7px; color: #334765; font-size: 14px; font-weight: 750; }
     input[type="text"], input[type="email"], input[type="tel"], input[type="file"], select {
       display: block; width: 100%; min-height: 46px; padding: 10px 13px;
       border: 1px solid #cbdaf0; border-radius: 9px; background: #fff;
       color: var(--club-text); font: inherit; font-size: 14px;
     }
-    select:disabled {
-      background: #f3f6fa;
-      color: #8fa3c0;
-      cursor: not-allowed;
-    }
+    select:disabled { background: #f3f6fa; color: #8fa3c0; cursor: not-allowed; }
     input[type="file"] { background: #f8fbff; padding: 9px; }
     input:focus, select:focus { outline: 3px solid rgba(7,85,245,.13); border-color: var(--club-blue); }
-    
+
     .section-title { margin: 0 0 12px; color: var(--club-blue); font-size: 20px; font-weight: 850; }
-    
+
     .btn-submit {
       display: block; width: 100%; padding: 14px 16px; border: 1px solid var(--club-blue);
       border-radius: 9px; background: var(--club-blue); color: #fff; font-size: 16px; font-weight: 800; cursor: pointer;
       margin-top: 10px;
     }
     .btn-submit:disabled { opacity: .6; cursor: wait; }
-    
+
     #loading { display: none; margin-top: 15px; color: var(--club-blue); text-align: center; font-weight: 750; }
     .error-message { display: none; margin-bottom: 16px; padding: 13px; border: 1px solid #ffd4d0; border-radius: 8px; background: #fff1f0; color: #a32118; overflow-wrap: anywhere; }
-    
+
     .success-header { padding: 40px 24px; border-top: 4px solid var(--club-blue); text-align: center; }
     .success-header h2 { margin-bottom: 14px; color: var(--club-blue); }
     .success-header p { margin: 0 0 20px; color: var(--club-muted); font-size: 16px; line-height: 1.65; }
@@ -153,8 +129,8 @@
       background: #fff; color: var(--club-blue); font-size: 14px; font-weight: 800; cursor: pointer;
     }
     .btn-reset:hover { background: var(--club-blue-light); }
-    
-    hr { margin: 22px 0 !important; border: 0; border-top: 1px solid #d8e6fb !important; }
+
+    hr { margin: 22px 0; border: 0; border-top: 1px solid #d8e6fb; }
 
     @media (max-width: 700px) {
       body { padding: 10px 0; }
@@ -173,7 +149,7 @@
 <body>
   <div class="container">
 
-    <!-- Hizkuntza hautatzea -->
+    <!-- Selección de idioma -->
     <div id="langSelector" class="panel">
       <img src="logo.png" alt="SBT Unkina" class="lang-logo" onerror="this.style.display='none'">
       <h1 class="lang-title">Aukeratu hizkuntza / Selecciona el idioma</h1>
@@ -181,7 +157,7 @@
       <button type="button" class="btn-lang" onclick="selectLanguage('es')">CASTELLANO</button>
     </div>
 
-    <!-- Formulario Nagusia -->
+    <!-- Formulario principal -->
     <div id="mainForm">
       <div class="panel brand-header">
         <div style="text-align: center;">
@@ -198,19 +174,18 @@
           <div>
             <strong id="bankTitle">ORDAINKETARAKO KONTU KORRONTEA:</strong><br>
             <code>ES42 2100 6307 1201 0007 9562</code><br>
+            <span id="bankHolder" style="font-weight: 700;">Hartzailea: Usansoloko Txoribeltz Saskibaloi Kirol Elkartea</span><br>
             <small id="bankText">Transferentziaren kontzeptuan jokalariaren izen-abizenak eta taldea adierazi, mesedez.</small>
           </div>
         </div>
 
         <form id="loteriaForm">
-          <input type="hidden" id="langInput" name="lang" value="eu">
-
           <div class="section-title" id="secJokalaria">1. Hautatu Taldea eta Jokalaria</div>
 
           <div class="family-note" id="familyNote">
             ⚠️ <strong>Oharra:</strong> Familia bakoitzeko loteria bat ematen da. Klubean jokalari bat baino gehiago baduzu, aukeratu kategoria handienean dagoena.
           </div>
-          
+
           <div class="form-grid">
             <div class="form-group">
               <label id="lblTaldea" for="taldeaSelect">Taldea *</label>
@@ -261,18 +236,19 @@
       </div>
     </div>
 
-    <!-- Mezua bidali ondoren -->
+    <!-- Mensaje de éxito -->
     <div id="successPanel" class="panel panel-content success-header" style="display:none;">
       <div style="font-size: 50px; margin-bottom: 10px;">✅</div>
-      <h2 id="succTitle">Eskerrik asko!</h2>
-      <p id="succDesc">Zure loteriaren ordainagiria egoki jaso da. Baiezko posta elektroniko bat bidali dizugu xehetasun guztiekin.</p>
+      <h2 id="succTitle">Ordainagiria ondo bidali da!</h2>
+      <p id="succDesc">Zure loteriaren ordainagiria egoki jaso da. Baiezko posta elektroniko bat bidali dizugu.</p>
       <button type="button" class="btn-reset" id="btnReset" onclick="resetForm()">Beste ordainagiri bat bidali</button>
     </div>
 
   </div>
 
   <script>
-    const API_URL = "https://script.google.com/macros/s/AKfycbzkxFfchqbJjok_AdLrx-t6xU42BGL7B0uwP5CjOdve3Z8aQuqkpM1t-f-8jzQn7AjI8g/exec";
+    // >>> PEGA AQUÍ LA URL DE TU NUEVA IMPLEMENTACIÓN (termina en /exec) <<<
+    const API_URL = "PEGA_AQUI_LA_URL_DE_TU_WEB_APP/exec";
 
     let currentLang = 'eu';
     let taldeakData = {};
@@ -284,9 +260,11 @@
         formSubTitle: "Ordainagiria igotzeko formularioa",
         bankTitle: "ORDAINKETARAKO KONTU KORRONTEA:",
         bankText: "Transferentziaren kontzeptuan jokalariaren izen-abizenak eta taldea adierazi, mesedez.",
+        bankHolder: "Hartzailea: Usansoloko Txoribeltz Saskibaloi Kirol Elkartea",
         secJokalaria: "1. Hautatu Taldea eta Jokalaria",
         familyNoteHtml: "⚠️ <strong>Oharra:</strong> Familia bakoitzeko loteria bat ematen da. Klubean jokalari bat baino gehiago baduzu, aukeratu kategoria handienean dagoena.",
         lblTaldea: "Taldea *",
+        optLoading: "Kargatzen...",
         optSelectTaldea: "-- Hautatu taldea --",
         lblJokalaria: "Jokalaria (eta Loteria Zenbakia) *",
         optWaitTaldea: "-- Lehenengo hautatu taldea --",
@@ -301,20 +279,27 @@
         btnSubmit: "BIDALI ORDAINAGIRIA",
         loading: "Datuak eta ordainagiria bidaltzen... Mesedez itxaron",
         succTitle: "Ordainagiria ondo bidali da!",
-        succDesc: "Zure loteriaren ordainagiria egoki jaso da eta Excel-ean erregistratu dugu. Baiezko email bat bidali dizugu.",
+        succDesc: "Zure loteriaren ordainagiria egoki jaso da eta erregistratu dugu. Baiezko email bat bidali dizugu.",
         btnReset: "Beste ordainagiri bat bidali",
         errMissingFields: "Mesedez, bete eremu guztiak (taldea, jokalaria, emaila eta telefonoa).",
         errNoFile: "Mesedez, hautatu ordainagiriaren fitxategia.",
-        errFileSize: "Fitxategiak gehienez 10 MB izan ditzake."
+        errFileSize: "Fitxategiak gehienez 10 MB izan ditzake.",
+        errLoad: "Errorea datuak kargatzean: ",
+        errConnect: "Errorea zerbitzariarekin konektatzean: ",
+        errSend: "Errorea bidalketan: ",
+        errUnknown: "Errore ezezaguna gertatu da.",
+        errRead: "Errorea fitxategia irakurtzean."
       },
       es: {
         formMainTitle: "Pago de Lotería del Club",
         formSubTitle: "Formulario para subir el justificante de pago",
         bankTitle: "CUENTA BANCARIA PARA EL PAGO:",
         bankText: "Indica en el concepto de la transferencia el nombre, apellidos y equipo del jugador/a, por favor.",
+        bankHolder: "Beneficiario: Usansoloko Txoribeltz Saskibaloi Kirol Elkartea",
         secJokalaria: "1. Selecciona Equipo y Jugador/a",
         familyNoteHtml: "⚠️ <strong>Nota:</strong> Se entrega una lotería por familia. Si tienes más de un jugador/a en el club, selecciona el/la de mayor categoría.",
         lblTaldea: "Equipo *",
+        optLoading: "Cargando...",
         optSelectTaldea: "-- Selecciona un equipo --",
         lblJokalaria: "Jugador/a (y Número de Lotería) *",
         optWaitTaldea: "-- Primero selecciona un equipo --",
@@ -329,74 +314,87 @@
         btnSubmit: "ENVIAR JUSTIFICANTE",
         loading: "Enviando datos y justificante... Por favor espere",
         succTitle: "¡Justificante enviado con éxito!",
-        succDesc: "Hemos recibido correctamente tu justificante y lo hemos registrado en el Excel. Te hemos enviado un email de confirmación.",
+        succDesc: "Hemos recibido correctamente tu justificante y lo hemos registrado. Te hemos enviado un email de confirmación.",
         btnReset: "Enviar otro justificante",
         errMissingFields: "Por favor, completa todos los campos (equipo, jugador/a, email y teléfono).",
         errNoFile: "Por favor, selecciona el archivo del justificante.",
-        errFileSize: "El archivo no puede superar los 10 MB."
+        errFileSize: "El archivo no puede superar los 10 MB.",
+        errLoad: "Error al cargar los datos: ",
+        errConnect: "Error al conectar con el servidor: ",
+        errSend: "Error al enviar: ",
+        errUnknown: "Ha ocurrido un error desconocido.",
+        errRead: "Error al leer el archivo."
       }
     };
 
-   function loadData() {
-  fetch(API_URL)
-    .then(function(r) { return r.json(); })
-    .then(function(response) {
-      if (response && response.success) {
-        taldeakData = response.taldeak || {};
-        dataLoaded = true;
-        populateTaldeakSelect();
-      } else {
-        showError("Errorea datuak kargatzean: " + (response ? response.error : ""));
-      }
-    })
-    .catch(function(err) {
-      showError("Errorea zerbitzariarekin konektatzean: " + err.message);
-    });
-}
+    // ---------- Carga de equipos ----------
+    function loadData() {
+      fetch(API_URL, { method: "GET", redirect: "follow" })
+        .then(function (r) { return r.json(); })
+        .then(function (response) {
+          if (response && response.success) {
+            taldeakData = response.taldeak || {};
+            dataLoaded = true;
+            populateTaldeakSelect();
+          } else {
+            showError(textos[currentLang].errLoad + (response ? response.error : ""));
+          }
+        })
+        .catch(function (err) {
+          showError(textos[currentLang].errConnect + err.message);
+        });
+    }
 
     window.addEventListener("DOMContentLoaded", loadData);
 
+    // ---------- Idioma ----------
     function selectLanguage(lang) {
       currentLang = lang;
-      document.getElementById("langInput").value = lang;
+      document.documentElement.lang = lang;
       document.getElementById("langSelector").style.display = "none";
       document.getElementById("mainForm").style.display = "block";
       updateTextos();
       if (dataLoaded) {
         populateTaldeakSelect();
+      } else {
+        document.getElementById("taldeaSelect").innerHTML =
+          '<option value="">' + textos[currentLang].optLoading + '</option>';
       }
     }
 
     function updateTextos() {
       const t = textos[currentLang];
-      document.getElementById("formMainTitle").innerText = t.formMainTitle;
-      document.getElementById("formSubTitle").innerText = t.formSubTitle;
-      document.getElementById("bankTitle").innerText = t.bankTitle;
-      document.getElementById("bankText").innerText = t.bankText;
-      document.getElementById("secJokalaria").innerText = t.secJokalaria;
+      const set = function (id, txt) { document.getElementById(id).innerText = txt; };
+      set("formMainTitle", t.formMainTitle);
+      set("formSubTitle", t.formSubTitle);
+      set("bankTitle", t.bankTitle);
+      set("bankText", t.bankText);
+      set("bankHolder", t.bankHolder);
+      set("secJokalaria", t.secJokalaria);
       document.getElementById("familyNote").innerHTML = t.familyNoteHtml;
-      document.getElementById("lblTaldea").innerText = t.lblTaldea;
-      document.getElementById("lblJokalaria").innerText = t.lblJokalaria;
-      document.getElementById("secKontaktua").innerText = t.secKontaktua;
-      document.getElementById("lblEmail").innerText = t.lblEmail;
-      document.getElementById("lblTelefonoa").innerText = t.lblTelefonoa;
-      document.getElementById("secOrdainagiria").innerText = t.secOrdainagiria;
-      document.getElementById("lblOrdainagiria").innerText = t.lblOrdainagiria;
-      document.getElementById("btnSubmit").innerText = t.btnSubmit;
-      document.getElementById("loading").innerText = t.loading;
-      document.getElementById("succTitle").innerText = t.succTitle;
-      document.getElementById("succDesc").innerText = t.succDesc;
-      document.getElementById("btnReset").innerText = t.btnReset;
+      set("lblTaldea", t.lblTaldea);
+      set("lblJokalaria", t.lblJokalaria);
+      set("secKontaktua", t.secKontaktua);
+      set("lblEmail", t.lblEmail);
+      set("lblTelefonoa", t.lblTelefonoa);
+      set("secOrdainagiria", t.secOrdainagiria);
+      set("lblOrdainagiria", t.lblOrdainagiria);
+      set("btnSubmit", t.btnSubmit);
+      set("loading", t.loading);
+      set("succTitle", t.succTitle);
+      set("succDesc", t.succDesc);
+      set("btnReset", t.btnReset);
     }
 
+    // ---------- Selects ----------
     function populateTaldeakSelect() {
       const t = textos[currentLang];
       const taldeaSelect = document.getElementById("taldeaSelect");
       const currentVal = taldeaSelect.value;
 
-      taldeaSelect.innerHTML = `<option value="">${t.optSelectTaldea}</option>`;
+      taldeaSelect.innerHTML = '<option value="">' + t.optSelectTaldea + '</option>';
 
-      Object.keys(taldeakData).forEach(talde => {
+      Object.keys(taldeakData).forEach(function (talde) {
         const opt = document.createElement("option");
         opt.value = talde;
         opt.textContent = talde.trim();
@@ -416,7 +414,7 @@
       const selectedTaldea = taldeaSelect.value;
 
       if (!selectedTaldea) {
-        jokalariaSelect.innerHTML = `<option value="">${t.optWaitTaldea}</option>`;
+        jokalariaSelect.innerHTML = '<option value="">' + t.optWaitTaldea + '</option>';
         jokalariaSelect.disabled = true;
         return;
       }
@@ -425,26 +423,26 @@
       jokalariaSelect.disabled = false;
 
       if (jokalariak.length === 0) {
-        jokalariaSelect.innerHTML = `<option value="">${t.optNoJokalariak}</option>`;
+        jokalariaSelect.innerHTML = '<option value="">' + t.optNoJokalariak + '</option>';
       } else {
-        jokalariaSelect.innerHTML = `<option value="">${t.optSelectJokalaria}</option>`;
-        jokalariak.forEach((jok, idx) => {
+        jokalariaSelect.innerHTML = '<option value="">' + t.optSelectJokalaria + '</option>';
+        jokalariak.forEach(function (jok, idx) {
           const opt = document.createElement("option");
           opt.value = idx;
           let labelText = jok.izena;
-          if (jok.zenbakia) labelText += ` (${jok.zenbakia})`;
-          if (jok.ordainduta) labelText += ` ${t.paidTag}`;
+          if (jok.zenbakia) labelText += " (" + jok.zenbakia + ")";
+          if (jok.ordainduta) labelText += " " + t.paidTag;
           opt.textContent = labelText;
           jokalariaSelect.appendChild(opt);
         });
       }
     }
 
-    document.getElementById("loteriaForm").addEventListener("submit", function(e) {
+    // ---------- Envío ----------
+    document.getElementById("loteriaForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const t = textos[currentLang];
-      const errDiv = document.getElementById("errorMessage");
-      errDiv.style.display = "none";
+      document.getElementById("errorMessage").style.display = "none";
 
       const taldea = document.getElementById("taldeaSelect").value;
       const jokIdx = document.getElementById("jokalariaSelect").value;
@@ -456,7 +454,7 @@
         return;
       }
 
-      const selectedJok = taldeakData[taldea][parseInt(jokIdx, 10)];
+      const selectedJok = (taldeakData[taldea] || [])[parseInt(jokIdx, 10)];
       if (!selectedJok) {
         showError(t.errMissingFields);
         return;
@@ -480,8 +478,8 @@
       loadingDiv.style.display = "block";
 
       const reader = new FileReader();
-      reader.onload = function(evt) {
-        const base64Data = evt.target.result.split(',')[1];
+      reader.onload = function (evt) {
+        const base64Data = evt.target.result.split(",")[1];
         const formObj = {
           lang: currentLang,
           taldea: taldea,
@@ -490,21 +488,18 @@
           loteriaZenbakia: selectedJok.zenbakia,
           email: email,
           telefonoa: telefonoa,
-          ordainagiria: {
-            name: file.name,
-            mimeType: file.type,
-            base64: base64Data
-          }
+          ordainagiria: { name: file.name, mimeType: file.type, base64: base64Data }
         };
 
+        // text/plain evita el preflight CORS (Apps Script no lo soporta)
         fetch(API_URL, {
           method: "POST",
           redirect: "follow",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(formObj)
         })
-          .then(function(r) { return r.json(); })
-          .then(function(response) {
+          .then(function (r) { return r.json(); })
+          .then(function (response) {
             loadingDiv.style.display = "none";
             submitBtn.disabled = false;
             if (response && response.success) {
@@ -512,20 +507,20 @@
               document.getElementById("successPanel").style.display = "block";
               loadData();
             } else {
-              showError(response ? response.error : "Errore ezezaguna gertatu da.");
+              showError(response && response.error ? response.error : t.errUnknown);
             }
           })
-          .catch(function(err) {
+          .catch(function (err) {
             loadingDiv.style.display = "none";
             submitBtn.disabled = false;
-            showError("Errorea bidalketan: " + (err && err.message ? err.message : String(err)));
+            showError(t.errSend + (err && err.message ? err.message : String(err)));
           });
       };
 
-      reader.onerror = function() {
+      reader.onerror = function () {
         loadingDiv.style.display = "none";
         submitBtn.disabled = false;
-        showError(currentLang === "eu" ? "Errorea fitxategia irakurtzean." : "Error al leer el archivo.");
+        showError(t.errRead);
       };
 
       reader.readAsDataURL(file);
